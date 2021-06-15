@@ -44,6 +44,19 @@ public class UserRegistration {
 		}
 	}
 
+	/*
+	 * Uc4: validating phone number
+	 */
+	public static boolean isMobileFormatValid(String mobile) {
+		String regex = "^((\\+)?(\\d{2}[\\s]))?(\\d{10}){1}?$";
+		Pattern patt = Pattern.compile(regex);
+		if (mobile == null) {
+			return false;
+		}
+		Matcher match = patt.matcher(mobile);
+		return match.matches();
+	}
+
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter firstname:");
@@ -51,6 +64,8 @@ public class UserRegistration {
 		System.out.println("Enter lastname:");
 		String lastname = input.nextLine();
 		String email = "Ranjithgc142gmail.com"
+		System.out.println("Enter mobile number");
+		String phno = input.nextLine();
 		if (isFirstName(firstname) == true) {
 			System.out.println("Firstname is Correct");
 		} else {
@@ -62,6 +77,11 @@ public class UserRegistration {
 			System.out.println("Lastname is Incorrect");
 		}
 		System.out.println("Email: " + validateEmail(email));
+		if (is MobileFormatValid(phno) == true) {
+			System.out.println("Phone Number is correct");
+		} else {
+			System.out.println("Phone Number is Incorrect");
+		}
 
 	}
 }
