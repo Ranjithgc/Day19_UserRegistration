@@ -33,12 +33,24 @@ public class UserRegistration {
 		return match2.matches();
 	}
 
+	/*
+	 * Uc3: validating Email
+	 */
+	public static String validateEmail(String email) {
+		if(Pattern.matches("^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?", email)) {
+		     return "valid";
+		} else {
+		     return "invalid";
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter firstname:");
 		String firstname = input.nextLine();
 		System.out.println("Enter lastname:");
 		String lastname = input.nextLine();
+		String email = "Ranjithgc142gmail.com"
 		if (isFirstName(firstname) == true) {
 			System.out.println("Firstname is Correct");
 		} else {
@@ -49,5 +61,7 @@ public class UserRegistration {
 		} else {
 			System.out.println("Lastname is Incorrect");
 		}
+		System.out.println("Email: " + validateEmail(email));
+
 	}
 }
