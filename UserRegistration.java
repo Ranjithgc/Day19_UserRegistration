@@ -57,6 +57,20 @@ public class UserRegistration {
 		return match.matches();
 	}
 
+	/*
+	 * Uc5: Validating password
+	 * Rule 1: should have atleast 8 characters
+	 */
+	public static boolean isPasswordValid(String password) {
+		String regex = "^[a-z]{8,}";
+		Pattern patt = Pattern.compile(regex);
+		if (password == null) {
+			return false;
+		}
+		Matcher match = patt.matcher(password);
+		return match.matches();
+	}
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter firstname:");
@@ -66,6 +80,8 @@ public class UserRegistration {
 		String email = "Ranjithgc142gmail.com"
 		System.out.println("Enter mobile number");
 		String phno = input.nextLine();
+		System.out.println("Enter password");
+		String password = input.nextLine();
 		if (isFirstName(firstname) == true) {
 			System.out.println("Firstname is Correct");
 		} else {
@@ -82,6 +98,10 @@ public class UserRegistration {
 		} else {
 			System.out.println("Phone Number is Incorrect");
 		}
-
+		if (isPasswordValid(mobile) == true) {
+			System.out.println("Password is Valid");
+		} else {
+			System.out.println("Password is Invalid");
+		}
 	}
 }
