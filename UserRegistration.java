@@ -60,9 +60,10 @@ public class UserRegistration {
 	/*
 	 * Uc5: Validating password
 	 * Rule 1: should have atleast 8 characters
+	 * Uc6: Rule 2: should have atleast one uppercase letter
 	 */
 	public static boolean isPasswordValid(String password) {
-		String regex = "^[a-z]{8,}";
+		String regex = "^[a-zA-Z]{8,}";
 		Pattern patt = Pattern.compile(regex);
 		if (password == null) {
 			return false;
